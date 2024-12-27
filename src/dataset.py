@@ -13,7 +13,7 @@ class GestureDetectDataset(Dataset):
             data = json.load(f)
         
         self.image_paths = [item['image_path'] for item in data]
-        self.labels = [item['data_class'] for item in data]
+        self.labels = [item['class'] for item in data]
         self.bboxes = [item['bbox'] for item in data]
         self.mode = mode
         
