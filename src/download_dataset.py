@@ -41,6 +41,14 @@ if __name__ == '__main__':
         elif dataset == 'hagrid-384p':
             path = kagglehub.dataset_download("innominate817/hagrid-sample-30k-384p")
             print("Path to hagrid-384p dataset files:", path)
+
+
+    os.makedirs(os.path.expanduser("~/.kaggle"), exist_ok=True)
+
+    os.rename(args.kaggle_token, os.path.expanduser("~/.kaggle/kaggle.json"))
+
+    os.chmod(os.path.expanduser("~/.kaggle/kaggle.json"), 0o600)
+
     print('Done!')
             
     
