@@ -1,0 +1,12 @@
+certifi==2024.12.14
+charset-normalizer==3.4.1
+idna==3.10
+kagglehub==0.3.6
+packaging==24.2
+requests==2.32.3
+setuptools==75.1.0
+tqdm==4.67.1
+urllib3==2.3.0
+wheel==0.44.0
+mediapipe
+
