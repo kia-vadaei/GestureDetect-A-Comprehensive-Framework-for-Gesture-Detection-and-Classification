@@ -2,6 +2,36 @@ import kagglehub
 import argparse
 import os 
 
+
+def set_kaggle_token(kaggle_token):
+
+    if not os.path.isfile(kaggle_token):
+        raise FileNotFoundError(f'Kaggle token file not found: {args.kaggle_token}')
+    
+    os.makedirs(os.path.expanduser("~/.kaggle"), exist_ok=True)
+
+    os.rename(kaggle_token, os.path.expanduser("~/.kaggle/kaggle.json"))
+
+    os.chmod(os.path.expanduser("~/.kaggle/kaggle.json"), 0o600)
+
+def download(datasets):
+
+    if len(datasets) == 0:
+        raise ValueError("No datasets selected. Please specify at least one dataset to download.")
+
+    for dataset in datasets:
+        if dataset == 'custom':
+            path = kagglehub.dataset_download("kianooshvadaei/castume-hand-gesture-dataset")
+            print("Path to custom dataset files:", path)
+        elif dataset == 'hagrid-512p':
+            path = kagglehub.dataset_download("innominate817/hagrid-classification-512p")
+            print("Path to hagrid-512p dataset files:", path)
+
+        elif dataset == 'hagrid-384p':
+            path = kagglehub.dataset_download("innominate817/hagrid-sample-30k-384p")
+            print("Path to hagrid-384p dataset files:", path)
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Dataset Downloader...')
     
