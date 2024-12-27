@@ -4,7 +4,7 @@ import os
 import json
 from tqdm import *
 
-class GenerateLabels:
+class Labels:
     def __init__(self, dataset_root = '/root/.cache/kagglehub/datasets/kianooshvadaei/castume-hand-gesture-dataset/versions/1'):
         self.mp_hands = mp.solutions.hands
         self.hands = self.mp_hands.Hands(static_image_mode=True, max_num_hands=1, min_detection_confidence=0.5)
@@ -44,7 +44,7 @@ class GenerateLabels:
         with open('labels.json', 'w') as f:
             json.dump(data, f, indent=4)
 
-    def generate_labels(self, save_as_json = True):
+    def labels(self, save_as_json = True):
 
         output_labels = []
 
