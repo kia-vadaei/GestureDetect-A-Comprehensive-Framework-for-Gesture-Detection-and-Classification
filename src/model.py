@@ -29,10 +29,10 @@ class CustomYoloLoss(nn.Module):
 
 class Model():
     def __init__(self, model_path, dataset_path):
+        self.dataset_path = dataset_path
         self.train_dataloader, self.val_dataloader, self.test_dataloader = self.get_dataloaders()
         self.model = torch.load(model_path)
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-        self.dataset_path = dataset_path
         
     def get_dataloaders(self):
         train_dataset = GestureDetectDataset(self.dataset_path, mode='train')
