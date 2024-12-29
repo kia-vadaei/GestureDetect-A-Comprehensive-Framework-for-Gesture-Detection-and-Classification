@@ -2,9 +2,9 @@ from ultralytics import YOLO
 import cv2
 import argparse
 import os
-parser = argparse.ArgumentParser(description="IP Packet Sender/Receiver using Scapy")
 
 def main():    
+    parser = argparse.ArgumentParser(description="YOLO Hand Gesture Detection")
     parser.add_argument(
     '--model-path',
     type=str,
@@ -14,7 +14,7 @@ def main():
     args = parser.parse_args()
 
     if not os.path.isfile(args.model_path):
-        raise FileNotFoundError(f'Kaggle token file not found: {args.model_path}')
+        raise FileNotFoundError(f'model path not found: {args.model_path}')
 
     model = YOLO(args.model_path)
     camera = cv2.VideoCapture(0)  
