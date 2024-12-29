@@ -9,4 +9,5 @@ tqdm==4.67.1
 urllib3==2.3.0
 wheel==0.44.0
 mediapipe
-
+argparse
+ultralytics
